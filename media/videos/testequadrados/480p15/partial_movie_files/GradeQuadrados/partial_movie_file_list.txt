@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/testequadrados/480p15/partial_movie_files/GradeQuadrados/1185818338_1517779608_223132457.mp4'
