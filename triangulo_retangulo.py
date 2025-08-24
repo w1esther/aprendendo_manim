@@ -55,36 +55,27 @@ class TrianguloRetangulo(Scene):
         self.play(FadeOut(numero_ac))
         self.play(FadeOut(numero_bc))
         self.wait(2)
-        
-        # linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*4)
-        # self.play(Create(linha1))
-
-        # linha2 = linha1.copy().shift(UP*0.8)
-        # self.play(Create(linha2))
-
-        # linha3 = linha1.copy().shift(DOWN*0.8)
-        # self.play(Create(linha3))
-        
-        # linha4 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).rotate(DEGREES*90).shift(UP*0.5)
-        # self.play(Create(linha4))
-
-        # linha5 = linha4.copy().move_to(LEFT*1.5)
-        # self.play(Create(linha5))
-
-        # linha6 = linha4.copy().move_to(RIGHT*1.5)
-        # self.play(Create(linha6))
 
         # horizontais
-        linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*0.8)
-        linha2 = Line(LEFT*3.5, RIGHT*-1, color=BLUE)
-        linha3 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(DOWN*0.8)
+        linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*1.1)
+        linha2 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*0.4)
+        linha3 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(DOWN*0.2)
 
         # verticais
-        linha4 = Line(UP*2, DOWN*2, color=BLUE).shift(LEFT*1.5)
-        linha5 = Line(UP*2, DOWN*2, color=BLUE)
-        linha6 = Line(UP*2, DOWN*2, color=BLUE).shift(RIGHT*1.5)
+        linha4 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.8)
+        linha5 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.2)
+        linha6 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*1.6)
 
         for l in [linha1, linha2, linha3, linha4, linha5, linha6]:
             self.play(Create(l))
+
+        self.wait(2)
+
+        quadrado_ac.set_fill(color=BLUE, opacity=0)
+        self.play(quadrado_ac.animate.set_fill(color=BLUE, opacity=1))
+
+        quatro_quadrado = Text('4^4', color=WHITE)
+        quatro_quadrado.move_to(ORIGIN + LEFT*2.2 + UP*0.7 )
+        self.play(FadeIn(quatro_quadrado))
 
         self.wait(2)
