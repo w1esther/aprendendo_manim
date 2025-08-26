@@ -79,3 +79,42 @@ class TrianguloRetangulo(Scene):
         self.play(FadeIn(quatro_quadrado))
 
         self.wait(2)
+
+        # linha7 = Line(LEFT*2.1, RIGHT*1.22, color=BLUE).rotate(-51.34*DEGREES)
+        # linha7.move_to(UP*2.9 + RIGHT*1.5)
+
+        # linha8 = Line(LEFT*2.1, RIGHT*1.22, color=BLUE).rotate(-51.34*DEGREES)
+        # linha8.move_to(UP*1.9 + RIGHT*1.9)
+
+        # linha9 = Line(LEFT*2.1, RIGHT*1.22, color=BLUE).rotate(-51.34*DEGREES)
+        # linha9.move_to(UP*1.8 + RIGHT*1.6)
+
+        # linha10 = Line(LEFT*2.1, RIGHT*1.22, color=BLUE).rotate(-51.34*DEGREES)
+        # linha10.move_to(UP*1.4 + RIGHT*2.7)
+
+        # for n in [linha7, linha8, linha9, linha10]:
+        #     self.play(Create(n))
+
+                # altura do quadrado
+        h = 3.22  
+
+        # número de linhas internas
+        n = 4  
+
+        # linha base (bem comprida), já rotacionada
+        base_line = Line(LEFT*2.5, RIGHT*2.5, color=BLUE).rotate(-51.34*DEGREES)
+
+        # centro do quadrado
+        centro = quadrado_bc.get_center()
+
+        linhas = []
+        for i in range(1, n+1):
+            desloc = (h/(n+1)) * (i - (n+1)/2)  # deslocamento relativo ao centro
+            linha = base_line.copy().move_to(centro + desloc * UP)  
+            linhas.append(linha)
+
+        for l in linhas:
+            self.play(Create(l))
+
+
+        self.wait(2)
