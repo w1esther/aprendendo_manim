@@ -56,46 +56,64 @@ class TrianguloRetangulo(Scene):
         self.play(FadeOut(numero_bc))
         self.wait(2)
 
-        # horizontais
-        linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*1.1)
-        linha2 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*0.4)
-        linha3 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(DOWN*0.2)
+        # # horizontais
+        # linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*1.1)
+        # linha2 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*0.4)
+        # linha3 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(DOWN*0.2)
 
-        # verticais
-        linha4 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.8)
-        linha5 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.2)
-        linha6 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*1.6)
+        # # verticais
+        # linha4 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.8)
+        # linha5 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.2)
+        # linha6 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*1.6)
 
-        for l in [linha1, linha2, linha3, linha4, linha5, linha6]:
-            self.play(Create(l))
+        # for l in [linha1, linha2, linha3, linha4, linha5, linha6]:
+        #     self.play(Create(l))
 
-        self.wait(2)
+        # self.wait(2)
 
         quadrado_ac.set_fill(color=BLUE, opacity=0)
         self.play(quadrado_ac.animate.set_fill(color=BLUE, opacity=1))
 
-        quatro_quadrado = Text('4^4', color=WHITE)
+        quatro_quadrado = Text('4²', color=WHITE)
         quatro_quadrado.move_to(ORIGIN + LEFT*2.2 + UP*0.7 )
         self.play(FadeIn(quatro_quadrado))
 
         self.wait(2)
 
-        # linha7 = Line(LEFT*5.9, LEFT*-1.5, color=BLUE).rotate(-51.34*DEGREES).shift(LEFT*-4.0)
-        
-        # linha8 = Line(LEFT*4.9, LEFT*-1.5, color=BLUE).rotate(-51.34*DEGREES).shift(LEFT*-4.4)
+        # linha_base = Line(LEFT*3, RIGHT*3, color=BLUE).rotate(-51.34*DEGREES)
 
-        # linha9 = Line(LEFT*3.9, LEFT*-1.5, color=BLUE).rotate(-51.34*DEGREES).shift(LEFT*-4.6)
+        # linha7  = linha_base.copy().shift(LEFT*-4.0)
+        # linha8  = linha_base.copy().shift(LEFT*-4.4)
+        # linha9  = linha_base.copy().shift(LEFT*-4.8)
+        # linha10 = linha_base.copy().shift(LEFT*-5.3)
 
-        # linha10 = Line(LEFT*2.9, LEFT*-1.5, color=BLUE).rotate(-51.34*DEGREES).shift(LEFT*-5.0)
+        # for n in [linha7, linha8, linha9, linha10]:
+        #     self.play(Create(n))
 
-        linha_base = Line(LEFT*3, RIGHT*3, color=BLUE).rotate(-51.34*DEGREES)
+        quadrado_ab.set_fill(color=BLUE, opacity=0)
+        self.play(quadrado_ab.animate.set_fill(color=BLUE, opacity=1))
 
-        linha7  = linha_base.copy().shift(LEFT*-4.0)
-        linha8  = linha_base.copy().shift(LEFT*-4.4)
-        linha9  = linha_base.copy().shift(LEFT*-4.8)
-        linha10 = linha_base.copy().shift(LEFT*-5.3)
-
-        for n in [linha7, linha8, linha9, linha10]:
-            self.play(Create(n))
+        tres_quadrado = Text('3²', color=WHITE)
+        tres_quadrado.move_to(ORIGIN + RIGHT*0.2 + DOWN*1.7 )
+        self.play(FadeIn(tres_quadrado))
 
         self.wait(2)
+
+        quadrado_bc.set_fill(color=BLUE, opacity=0)
+        self.play(quadrado_bc.animate.set_fill(color=BLUE, opacity=1))
+
+        cinco_quadrado = Text('5²', color=WHITE)
+        cinco_quadrado.move_to(ORIGIN + RIGHT*1.2 + UP*1.5 )
+        self.play(FadeIn(cinco_quadrado))
+        self.wait(2)
+
+        for n in [quadrado_ab, quadrado_ac, quadrado_bc, triangulo_retangulo]:
+            self.play(FadeOut(n))
+        
+        self.wait(2)
+
+        tres_quadrado.move_to(ORIGIN + UP*0.8)
+        self.play(FadeIn(tres_quadrado))
+
+        self.wait(2)
+
