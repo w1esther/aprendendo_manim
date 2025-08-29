@@ -5,9 +5,6 @@ class TrianguloRetangulo(Scene):
     def construct(self):
     # função responsável por construir a cena
 
-        # pitagoras = Text('Teorema de Pitágoras', color=BLUE, font_size=24)
-        # pitagoras.move_to(ORIGIN + UP*3.5)
-
         a = LEFT*2 + DOWN*2
         b = RIGHT*2 + DOWN*2
         c = LEFT*2 + UP*3
@@ -17,7 +14,6 @@ class TrianguloRetangulo(Scene):
         # crio o triângulo com os pontos definidos anteriormente
 
         self.play(Create(triangulo_retangulo))
-        # self.play(FadeIn(pitagoras))
         # executa animações na cena
         self.wait(2)
         self.play(triangulo_retangulo.animate.scale(0.5))
@@ -112,8 +108,57 @@ class TrianguloRetangulo(Scene):
         
         self.wait(2)
 
-        tres_quadrado.move_to(ORIGIN + UP*0.8)
+        tres_quadrado.move_to(ORIGIN + UP*0.7)
         self.play(FadeIn(tres_quadrado))
+        self.wait(1)
+        cinco_quadrado.move_to(ORIGIN + UP*0.7 + RIGHT*1.9)
+        self.play(FadeIn(cinco_quadrado))
+        self.wait(1)
+
+        mais_um = Text('+', color = WHITE)
+        mais_um.move_to(ORIGIN + UP*0.6+LEFT*1.2)
+
+        igual = Text('=', color=WHITE)
+        igual.move_to(ORIGIN + UP*0.6 + RIGHT*0.9)
+
+        for l in [mais_um, igual]:
+            self.play(Create(l))
 
         self.wait(2)
 
+        dezesseis = Text('16', color=WHITE)
+        dezesseis.move_to(ORIGIN + LEFT*2.2 + UP*0.7 )
+        nove = Text('9', color=WHITE)
+        nove.move_to(ORIGIN + UP*0.7)
+        vinte_cinco = Text('25', color=WHITE)
+        vinte_cinco.move_to(ORIGIN + UP*0.7 + RIGHT*1.9)
+
+        self.play(Transform(quatro_quadrado, dezesseis))
+        self.play(Transform(tres_quadrado, nove))
+        self.play(Transform(cinco_quadrado, vinte_cinco))
+
+        pitagoras = Text('Teorema de Pitágoras', color=BLUE, font_size=34)
+        pitagoras.move_to(ORIGIN + UP*2.5)
+        self.play(FadeIn(pitagoras))
+
+        forma_geral = Text('A soma do quadro dos catetos ' \
+        'é igual ao quadrado da hipotenusa', color=BLUE, font_size=24)
+        forma_geral.move_to(ORIGIN + DOWN*0.5)
+
+        self.play(Create(forma_geral))
+
+        a = Text('a', color=WHITE)
+        a.move_to(ORIGIN + LEFT*2.2 + UP*0.7 )
+        b = Text('b', color=WHITE)
+        b.move_to(ORIGIN + UP*0.7)
+        c = Text('c', color=WHITE)
+        c.move_to(ORIGIN + UP*0.7 + RIGHT*1.9)
+        
+        for n in [quatro_quadrado, tres_quadrado, cinco_quadrado]:
+            self.play(FadeOut(n))
+
+        self.play(FadeIn(a))
+        self.play(FadeIn(b))
+        self.play(FadeIn(c))
+
+        self.wait(2)
