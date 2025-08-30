@@ -110,7 +110,6 @@ class TrianguloRetangulo(Scene):
 
         tres_quadrado.move_to(ORIGIN + UP*0.7)
         self.play(FadeIn(tres_quadrado))
-        self.wait(1)
         cinco_quadrado.move_to(ORIGIN + UP*0.7 + RIGHT*1.9)
         self.play(FadeIn(cinco_quadrado))
         self.wait(1)
@@ -147,18 +146,15 @@ class TrianguloRetangulo(Scene):
 
         self.play(Create(forma_geral))
 
-        a = Text('a', color=WHITE)
+        a = Text('a²', color=WHITE)
         a.move_to(ORIGIN + LEFT*2.2 + UP*0.7 )
-        b = Text('b', color=WHITE)
+        b = Text('b²', color=WHITE)
         b.move_to(ORIGIN + UP*0.7)
-        c = Text('c', color=WHITE)
+        c = Text('c²', color=WHITE)
         c.move_to(ORIGIN + UP*0.7 + RIGHT*1.9)
-        
-        for n in [quatro_quadrado, tres_quadrado, cinco_quadrado]:
-            self.play(FadeOut(n))
 
-        self.play(FadeIn(a))
-        self.play(FadeIn(b))
-        self.play(FadeIn(c))
+        self.play(Transform(quatro_quadrado, a))
+        self.play(Transform(tres_quadrado, b))
+        self.play(Transform(cinco_quadrado, c))
 
         self.wait(2)
