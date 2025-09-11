@@ -13,4 +13,16 @@ class Volumes(ThreeDScene):
 
         self.play(FadeIn(cubo), FadeIn(t1))
 
-        
+        l1 = Text('1')
+        l2 = Text('1')
+        l3 = Text('1')
+
+        l1.move_to(ORIGIN + RIGHT*3.5 + UP*1.5)
+        l1.rotate(120*DEGREES)
+        l2.move_to(ORIGIN + RIGHT*1 + DOWN*2)
+        l2.rotate(120*DEGREES)
+        l3.move_to(ORIGIN + RIGHT*1.5 + UP*2.5)
+        l3.rotate(120*DEGREES)
+
+        for n in [l1, l2, l3]:
+            self.play(Create(n))
