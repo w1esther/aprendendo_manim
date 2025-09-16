@@ -1,0 +1,3 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras3D/1215263568_920159677_223132457.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras3D/2498717851_3618686166_3822364169.mp4'

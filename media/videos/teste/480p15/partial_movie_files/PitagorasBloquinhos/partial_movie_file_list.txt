@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/1185818338_1677990593_223132457.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/624642324_3859687753_1525660401.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/624642324_1839128356_327682250.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/624642324_3992436360_1860385503.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/624642324_1839128356_2220102682.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/624642324_2801355568_260116445.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/PitagorasBloquinhos/624642324_2408024828_4166472848.mp4'
