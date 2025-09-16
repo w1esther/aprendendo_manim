@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/1185818338_2657757182_223132457.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/624642324_3469898574_1005577967.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/624642324_1839128356_3998011530.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/624642324_2927984020_2648210334.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/624642324_1839128356_2892442972.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/624642324_4124895453_577115846.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste/480p15/partial_movie_files/AguaPitagoras/624642324_2408024828_1052917830.mp4'
