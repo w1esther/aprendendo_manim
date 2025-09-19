@@ -38,9 +38,12 @@ class PitagorasBloquinhos(Scene):
                 bloquinhos.add(bloco)
 
         self.play(LaggedStartMap(FadeIn, bloquinhos, lag_ratio=0.02))
-        self.wait(1)
+
+        self.wait(2)
         
-        bloquinhos.rotate(125*DEGREES)
+        bloquinhos2 = bloquinhos.rotate(125*DEGREES)
+
+        self.play(Transform(bloquinhos, bloquinhos2))
         # Posicionamento alvo dos bloquinhos no quadrado da hipotenusa
         destinos = VGroup()
         n = int(c)
@@ -54,6 +57,6 @@ class PitagorasBloquinhos(Scene):
         destinos.rotate(125* DEGREES, about_point=sq_c.get_center())
 
         # Animação: bloquinhos se movem até formar c^2
-        anims = [bloquinhos[k].animate.move_to(destinos[k].get_center() + UP*1 + LEFT*1.55 + DOWN*1.1 + RIGHT*0.75) for k in range(len(bloquinhos))]
+        anims = [bloquinhos[k].animate.move_to(destinos[k].get_center() + UP*1 + LEFT*1.55 + DOWN*1.1 + RIGHT*0.5) for k in range(len(bloquinhos))]
         self.play(*anims, run_time=4)
         self.wait(2)
