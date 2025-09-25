@@ -65,3 +65,5 @@ class PitagorasBloquinhos(Scene):
         anims = [bloquinhos[k].animate.move_to(destinos[k].get_center() + UP*1 + LEFT*1.55 + DOWN*1.1 + RIGHT*0.5) for k in range(len(bloquinhos))]
         self.play(*anims, run_time=4)
         self.wait(2)
+
+        print(RIGHT)

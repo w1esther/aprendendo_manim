@@ -52,20 +52,20 @@ class TrianguloRetangulo(Scene):
         self.play(FadeOut(numero_bc))
         self.wait(2)
 
-        # # horizontais
-        # linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*1.1)
-        # linha2 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*0.4)
-        # linha3 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(DOWN*0.2)
+        # horizontais
+        linha1 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*1.1)
+        linha2 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(UP*0.4)
+        linha3 = Line(LEFT*3.5, RIGHT*-1, color=BLUE).shift(DOWN*0.2)
 
-        # # verticais
-        # linha4 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.8)
-        # linha5 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.2)
-        # linha6 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*1.6)
+        # verticais
+        linha4 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.8)
+        linha5 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*2.2)
+        linha6 = Line(UP*1.75, DOWN*0.75, color=BLUE).shift(LEFT*1.6)
 
-        # for l in [linha1, linha2, linha3, linha4, linha5, linha6]:
-        #     self.play(Create(l))
+        for l in [linha1, linha2, linha3, linha4, linha5, linha6]:
+            self.play(Create(l))
 
-        # self.wait(2)
+        self.wait(2)
 
         quadrado_ac.set_fill(color=BLUE, opacity=0)
         self.play(quadrado_ac.animate.set_fill(color=BLUE, opacity=1))
