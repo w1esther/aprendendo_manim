@@ -3,40 +3,84 @@ from math import sqrt, atan2
 
 class Hipotenusa(Scene):
     def construct(self):
+
+        # define os valores dos catetos e da hipotenusa
+
         a, b = 3, 4
         c = sqrt(a**2 + b**2)
 
-        tri = Polygon(ORIGIN, a*RIGHT, b*UP, color=WHITE)
-        tri.move_to(ORIGIN + UP)
+        fe = 0.5
+
+        # tri cria o triângulo retângulo 
+
+        tri = Polygon(ORIGIN, a*fe*RIGHT, b*fe*UP, color=WHITE)
+        ponto01 = np.array([0, 0, 0])
+        tri.move_to(ponto01) 
         self.play(Create(tri))
 
-        self.play(tri.animate.scale(0.5))
-        self.wait(2)
+        # cria os quadrados adjacentes ao catetos
 
-        sq_a = Square(side_length=a * 0.5, color=BLUE).next_to(tri, DOWN, buff=0, aligned_edge=LEFT)
-        sq_b = Square(side_length=b * 0.5, color=GREEN).next_to(tri, LEFT, buff=0, aligned_edge=DOWN)
-        
-        #calcula o ponto médio da hipotenusa
-        meio_hipotenusa = (a*RIGHT + b*UP)/2
-        
-        sq_c = Square(side_length=c * 0.5, color=RED).move_to(meio_hipotenusa)
-       
-       # cria um vetor que representa o ponto final da hiporenusa e o ponto inicial respectivamente 
-        v = np.array([0, b, 0]) - np.array([a, 0, 0])
-        # resultado: [-a, b, 0] (subtração de vetores)
+        sq_a = Square(side_length=a * fe, color=BLUE).next_to(tri, DOWN, buff=0, aligned_edge=LEFT)
+        sq_b = Square(side_length=b * fe, color=GREEN).next_to(tri, LEFT, buff=0, aligned_edge=DOWN) 
 
-        #v[1]-componente y do vetor v[0]-componente x do vetor 
-        # atan2 é uma função matemática que calcula o ângulo entre o vetor (x, y) e o eixo x 
+        # define os pontos da hipotenusa
 
-        #obs fazer sem o facilitador atan2
+        O = np.array([0, 0, 0]) 
+        p_y= np.array([0, b*fe, 0])
+        p_x = np.array([a*fe, 0, 0]) 
+
+        # define os extremos da hipotenusa
+
+        A = p_y.copy()
+        B = p_x.copy()
+
+        # vetor da hipotenusa, aponta de A até B
+
+        v = B - A
+
+        # comprimento da hipotenusa, fazer sem o artifício
+
+        length_v = np.linalg.norm(v[:2])
+
+        # vetor unitário na direção da hipotenusa
+
+        u = v / length_v 
+
+        # calcula ponto médio da hipotenusa
+
+        meio_hipotenusa = (A + B)/2
+
+        # vetor perpendicular à hipotenusa
+
+        n = np.array([-u[1], u[0], 0])
+
+        # centro do triângulo
+
+        centro_tri = (O + p_x + p_y)/3
+
+        # se o vetor apontar para dentro ele é invertido
+
+        if np.dot(n, centro_tri - meio_hipotenusa) > 0:
+            n = -n
+
+        # define lado do quadrado da hipotenusa
+
+        s = c * fe
+
+        # define centro do quadrado da hipotenusa no meio dela
+
+        centro_sq_c = meio_hipotenusa + n * (s/2)
+
+        # calcula o ângulo da hipotenusa com o eixo x.
+
         angle = atan2(v[1], v[0])
-        #vai gerar aproximadamente o ângulo 126.87
-        sq_c.rotate(angle, about_point=sq_c.get_center())
+        
+        # cria o quadrado adjacente à hipotenusa e o posiciona adequadamemte
 
+        sq_c = Square(side_length=s, 
+        color=RED)
+        sq_c.rotate(angle, about_point=sq_c.get_center())
+        sq_c.move_to(centro_sq_c)
+        
         self.play(Create(sq_a), Create(sq_b), Create(sq_c))
         self.wait(1)
-        
-        print('Right:', RIGHT)
-        print('left:', LEFT)
-        print('up:', UP)
-        print('down: ', DOWN)
