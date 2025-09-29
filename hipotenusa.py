@@ -14,8 +14,6 @@ class Hipotenusa(Scene):
         # tri cria o triângulo retângulo 
 
         tri = Polygon(ORIGIN, a*fe*RIGHT, b*fe*UP, color=WHITE)
-        ponto01 = np.array([0, 0, 0])
-        tri.move_to(ponto01) 
         self.play(Create(tri))
 
         # cria os quadrados adjacentes ao catetos
