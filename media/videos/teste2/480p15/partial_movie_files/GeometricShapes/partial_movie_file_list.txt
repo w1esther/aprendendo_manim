@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/teste2/480p15/partial_movie_files/GeometricShapes/1185818338_105223348_562773833.mp4'

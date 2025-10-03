@@ -16,6 +16,8 @@ class Hipotenusa(Scene):
         tri = Polygon(ORIGIN, a*fe*RIGHT, b*fe*UP, color=WHITE)
         self.play(Create(tri))
 
+        
+
         # cria os quadrados adjacentes ao catetos
 
         sq_a = Square(side_length=a * fe, color=BLUE).next_to(tri, DOWN, buff=0, aligned_edge=LEFT)
@@ -82,3 +84,48 @@ class Hipotenusa(Scene):
         
         self.play(Create(sq_a), Create(sq_b), Create(sq_c))
         self.wait(1)
+
+         # Criar bloquinhos nos quadrados dos catetos
+        bloquinhos = VGroup()
+        for i in range(a):
+            for j in range(a):
+                bloco = Square(side_length=0.5, fill_color=BLUE, fill_opacity=0.7, stroke_width=0)
+                bloco.move_to(sq_a.get_corner(DL) + RIGHT*(i+0.5)*0.5 + UP*(j+0.5)*0.5)
+                bloquinhos.add(bloco)
+
+        #sq_a.get_corner(DL) retorna a coordenada do canto inferior-esquerdo (DL = down-left) do quadrado sq_a.
+
+        for i in range(b):
+            for j in range(b):
+                bloco = Square(side_length=0.5, fill_color=GREEN, fill_opacity=0.7, stroke_width=0)
+                bloco.move_to(sq_b.get_corner(DL) + RIGHT*(i+0.5) * 0.5 + UP*(j+0.5)*0.5)
+                bloquinhos.add(bloco)
+
+        self.play(LaggedStartMap(FadeIn, bloquinhos, lag_ratio=0.02))
+
+        self.wait(2)
+        
+        bloquinhos2 = bloquinhos.copy().rotate(125*DEGREES)
+        self.play(Transform(bloquinhos, bloquinhos2))
+        # Posicionamento alvo dos bloquinhos no quadrado da hipotenusa
+
+        destinos = VGroup()
+        n = int(c)
+        lado_bloco = s / n
+
+        for i in range(n):
+            for j in range(n):
+                bloco = Square(side_length=lado_bloco, stroke_width=0)
+                # Criamos um quadradinho invisível (sem borda e sem preenchimento). Ele não vai aparecer na cena, mas serve como um alvo.
+                pos = ((i - n/2 + 0.5) *lado_bloco)* RIGHT + ((j - n/2 + 0.5) *lado_bloco) * UP
+                bloco.move_to(centro_sq_c + pos)
+                destinos.add(bloco)
+                
+        destinos.rotate(angle, about_point=centro_sq_c)
+
+        # Animação: bloquinhos se movem até formar c^2
+        anims = [bloquinhos[k].animate.move_to(destinos[k].get_center()) for k in range(len(bloquinhos))]
+        self.play(*anims, run_time=4)
+        self.wait(2)
+
+        print(RIGHT)
