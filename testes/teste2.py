@@ -11,3 +11,4 @@ class GeometricShapes(Scene):
         t.next_to(c, DOWN)
         self.add(d, c, s, t)
         self.wait(10)
+        

@@ -79,7 +79,7 @@ class Hipotenusa(Scene):
 
         sq_c = Square(side_length=s, 
         color=RED)
-        sq_c.rotate(angle)
+        sq_c.rotate(angle,about_point=sq_c.get_center())
         sq_c.move_to(centro_sq_c)
         
         self.play(Create(sq_a), Create(sq_b), Create(sq_c))
