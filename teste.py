@@ -5,142 +5,125 @@ class PitagorasBloquinhos(Scene):
     def construct(self):
         # Lados do triângulo
 
-        #criando novos pontos 
-        # ponto03 = np.array([0, 0, 0])
-        # ponto04 = np.array([1, 0, 0])
+        fe = 0.5
+        a, b = 3, 4
+        c = (a**2 + b**2) ** fe
 
-        # # A função Dot cria o ponto na tela
-        # dot03 = Dot(ponto03)
-        # dot04 = Dot(ponto04)
+        # Triângulo retângulo
+        tri = Polygon(ORIGIN, a*fe*RIGHT, b*fe*UP, color=WHITE)
+        tri.move_to(ORIGIN + UP)
+        self.play(Create(tri))
 
-        for n in range():
-            n00 = np.array([n, 0, 0])
-            dotn00 = Dot(n00)
-            self.play(Create(dotn00))
-
-        #criando linha que vai do ponto 03 ao ponto 04 
-
-        # self.play(Create(dot03), Create(dot04))
-
-        # fe = 0.5
-        # a, b = 3, 4
-        # c = (a**2 + b**2) ** fe
-
-        # # Triângulo retângulo
-        # tri = Polygon(ORIGIN, a*fe*RIGHT, b*fe*UP, color=WHITE)
-        # tri.move_to(ORIGIN + UP)
-        # self.play(Create(tri))
-
-        # self.wait(2)
+        self.wait(2)
 
 
-        # # Quadrados nos lados
-        # sq_a = Square(side_length=a * fe, color=BLUE).next_to(tri, DOWN, buff=0, aligned_edge=LEFT)
-        # sq_b = Square(side_length=b * fe, color=GREEN).next_to(tri, LEFT, buff=0, aligned_edge=DOWN)
+        # Quadrados nos lados
+        sq_a = Square(side_length=a * fe, color=BLUE).next_to(tri, DOWN, buff=0, aligned_edge=LEFT)
+        sq_b = Square(side_length=b * fe, color=GREEN).next_to(tri, LEFT, buff=0, aligned_edge=DOWN)
 
-        # O = np.array([0, 0, 0]) 
-        # p_y= np.array([0, b*fe, 0])
-        # p_x = np.array([a*fe, 0, 0]) 
+        O = np.array([0, 0, 0]) 
+        p_y= np.array([0, b*fe, 0])
+        p_x = np.array([a*fe, 0, 0]) 
 
-        # # define os extremos da hipotenusa
+        # define os extremos da hipotenusa
 
-        # A = p_y.copy()
-        # B = p_x.copy()
+        A = p_y.copy()
+        B = p_x.copy()
 
-        # # vetor da hipotenusa, aponta de A até B
+        # vetor da hipotenusa, aponta de A até B
 
-        # v = B - A
+        v = B - A
 
-        # # comprimento da hipotenusa, fazer sem o artifício
+        # comprimento da hipotenusa, fazer sem o artifício
 
-        # length_v = np.linalg.norm(v[:2])
+        length_v = np.linalg.norm(v[:2])
 
-        # # vetor unitário na direção da hipotenusa
+        # vetor unitário na direção da hipotenusa
 
-        # u = v / length_v 
+        u = v / length_v 
 
-        # # calcula ponto médio da hipotenusa
+        # calcula ponto médio da hipotenusa
 
-        # meio_hipotenusa = (A + B)/2
+        meio_hipotenusa = (A + B)/2
 
-        # # vetor perpendicular à hipotenusa
+        # vetor perpendicular à hipotenusa
 
-        # n = np.array([-u[1], u[0], 0])
+        n = np.array([-u[1], u[0], 0])
 
-        # # centro do triângulo
+        # centro do triângulo
 
-        # centro_tri = (O + p_x + p_y)/3
+        centro_tri = (O + p_x + p_y)/3
 
-        # # se o vetor apontar para dentro ele é invertido
+        # se o vetor apontar para dentro ele é invertido
 
-        # if np.dot(n, centro_tri - meio_hipotenusa) > 0:
-        #     n = -n
+        if np.dot(n, centro_tri - meio_hipotenusa) > 0:
+            n = -n
 
-        # # define lado do quadrado da hipotenusa
+        # define lado do quadrado da hipotenusa
 
-        # s = c * fe
+        s = c * fe
 
-        # # define centro do quadrado da hipotenusa no meio dela
+        # define centro do quadrado da hipotenusa no meio dela
 
-        # centro_sq_c = meio_hipotenusa + n * (s/2)
+        centro_sq_c = meio_hipotenusa + n * (s/2)
 
-        # # calcula o ângulo da hipotenusa com o eixo x.
+        # calcula o ângulo da hipotenusa com o eixo x.
 
-        # angle = atan2(v[1], v[0])
+        angle = atan2(v[1], v[0])
         
-        # # cria o quadrado adjacente à hipotenusa e o posiciona adequadamemte
+        # cria o quadrado adjacente à hipotenusa e o posiciona adequadamemte
 
-        # sq_c = Square(side_length=s,color=RED)
-        # sq_c.rotate(angle, about_point=sq_c.get_center())
-        # sq_c.move_to(centro_sq_c)
+        sq_c = Square(side_length=s,color=RED)
+        sq_c.rotate(angle, about_point=sq_c.get_center())
+        sq_c.move_to(centro_sq_c)
         
-        # self.play(Create(sq_a), Create(sq_b), Create(sq_c))
-        # #atenção no uso do rotate
-        # #obs usae next_to para tentar fazer alinhamento
+        self.play(Create(sq_a), Create(sq_b), Create(sq_c))
+        #atenção no uso do rotate
+        #obs usae next_to para tentar fazer alinhamento
 
-        # self.wait(1)
+        self.wait(1)
 
-        # # Criar bloquinhos nos quadrados dos catetos
-        # bloquinhos = VGroup()
-        # for i in range(a):
-        #     for j in range(a):
-        #         bloco = Square(side_length=0.5, fill_color=BLUE, fill_opacity=0.7, stroke_width=0)
-        #         bloco.move_to(sq_a.get_corner(DL) + RIGHT*(i+0.5)*0.5 + UP*(j+0.5)*0.5)
-        #         bloquinhos.add(bloco)
+        # Criar bloquinhos nos quadrados dos catetos
+        bloquinhos = VGroup()
+        for i in range(a):
+            for j in range(a):
+                bloco = Square(side_length=0.5, fill_color=BLUE, fill_opacity=0.7, stroke_width=0)
+                bloco.move_to(sq_a.get_corner(DL) + RIGHT*(i+0.5)*0.5 + UP*(j+0.5)*0.5)
+                bloquinhos.add(bloco)
 
-        # #sq_a.get_corner(DL) retorna a coordenada do canto inferior-esquerdo (DL = down-left) do quadrado sq_a.
+        #sq_a.get_corner(DL) retorna a coordenada do canto inferior-esquerdo (DL = down-left) do quadrado sq_a.
 
-        # for i in range(b):
-        #     for j in range(b):
-        #         bloco = Square(side_length=0.5, fill_color=GREEN, fill_opacity=0.7, stroke_width=0)
-        #         bloco.move_to(sq_b.get_corner(DL) + RIGHT*(i+0.5) * 0.5 + UP*(j+0.5)*0.5)
-        #         bloquinhos.add(bloco)
+        for i in range(b):
+            for j in range(b):
+                bloco = Square(side_length=0.5, fill_color=GREEN, fill_opacity=0.7, stroke_width=0)
+                bloco.move_to(sq_b.get_corner(DL) + RIGHT*(i+0.5) * 0.5 + UP*(j+0.5)*0.5)
+                bloquinhos.add(bloco)
 
-        # self.play(LaggedStartMap(FadeIn, bloquinhos, lag_ratio=0.02))
+        self.play(LaggedStartMap(FadeIn, bloquinhos, lag_ratio=0.02))
 
-        # self.wait(2)
+        self.wait(2)
         
-        # bloquinhos2 = bloquinhos.copy().rotate(125*DEGREES)
-        # self.play(Transform(bloquinhos, bloquinhos2))
-        # # Posicionamento alvo dos bloquinhos no quadrado da hipotenusa
+        bloquinhos2 = bloquinhos.copy().rotate(125*DEGREES)
+        self.play(Transform(bloquinhos, bloquinhos2))
+        # Posicionamento alvo dos bloquinhos no quadrado da hipotenusa
 
-        # destinos = VGroup()
-        # n = int(c)
-        # for i in range(n):
-        #     for j in range(n):
-        #         bloco = Square(side_length=0.5, stroke_width=0)
-        #         # Criamos um quadradinho invisível (sem borda e sem preenchimento). Ele não vai aparecer na cena, mas serve como um alvo.
-        #         pos = sq_c.get_center() + (i - n/2 + 0.5) * RIGHT + (j - n/2 + 0.5) * UP
-        #         bloco.move_to(pos * 0.5)
-        #         destinos.add(bloco)
+        destinos = VGroup()
+        n = int(c)
+        for i in range(n):
+            for j in range(n):
+                bloco = Square(side_length=0.5, stroke_width=0)
+                # Criamos um quadradinho invisível (sem borda e sem preenchimento). Ele não vai aparecer na cena, mas serve como um alvo.
+                pos = sq_c.get_center() + (i - n/2 + 0.5) * RIGHT + (j - n/2 + 0.5) * UP
+                bloco.move_to(pos * 0.5)
+                destinos.add(bloco)
                 
-        # destinos.rotate(125* DEGREES, about_point=sq_c.get_center())
+        destinos.rotate(125* DEGREES, about_point=sq_c.get_center())
 
-        # # Animação: bloquinhos se movem até formar c^2
-        # anims = [bloquinhos[k].animate.move_to(destinos[k].get_center() + UP*1 + LEFT*1.55 + DOWN*1.1 + RIGHT*0.5) for k in range(len(bloquinhos))]
-        # self.play(*anims, run_time=4)
-        # self.wait(2)
+        # Animação: bloquinhos se movem até formar c^2
+        anims = [bloquinhos[k].animate.move_to(destinos[k].get_center() + UP*1 + LEFT*1.55 + DOWN*1.1 + RIGHT*0.5) for k in range(len(bloquinhos))]
+        self.play(*anims, run_time=4)
+        self.wait(2)
 
-        # print(RIGHT)
+        print(RIGHT)
 
         
