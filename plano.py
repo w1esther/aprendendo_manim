@@ -1,7 +1,9 @@
 from manim import *
 
-class Plano(Scene):
+class Plano(MovingCameraScene):
     def construct(self):
+
+        # MovingCameraScene é uma subclasse de Scene (ou seja, herda absolutamente todos os métodos, atributos e comportamentos da Scene tradicional.) que adiciona a capacidade de mover e dar zoom com a câmera durante a animação.
         
         for n in range(-7, 8):
             n00 = np.array([n, 0, 0])
@@ -24,3 +26,15 @@ class Plano(Scene):
         linha02 = Line(ponto03, ponto04)
 
         self.play(Create(linha02))
+
+        self.wait(2)
+
+        # self.camera.frame é o objeto que representa o campo de visão da câmera 
+
+        self.play(self.camera.frame.animate.scale(0.5).move_to(ORIGIN))
+
+        self.wait(2)
+
+        self.play(self.camera.frame.animate.move_to(LEFT))
+
+        self.wait(2)
