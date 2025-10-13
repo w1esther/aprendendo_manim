@@ -54,4 +54,37 @@ class Plano(MovingCameraScene):
 
         self.play(self.camera.frame.animate.move_to(RIGHT))
 
+        ponto08 = np.array([0.5, 1, 0])
+        dot08 = Dot(ponto08, color=BLUE)
+        self.play(FadeIn(dot08))
+
+        ponto09 = np.array([1.5, -1, 0])
+        dot09 = Dot(ponto09, color=BLUE)
+        self.play(FadeIn(dot09))
+
+        ponto10 = np.array([1, 0, 0])
+        dot10 = Dot(ponto10, color=BLUE)
+        self.play(FadeIn(dot10))
+
+        self.wait(1)
+
+        self.play(self.camera.frame.animate.scale(2))  
+
         self.wait(2)
+
+        ponto11 = np.array([-8, 0, 0])
+        ponto12 = np.array([8, 0, 0])
+        ponto13 = np.array([0, -5, 0])
+        ponto14 = np.array([0, 5, 0])
+
+        dot11 = Dot(ponto11)
+        dot12 = Dot(ponto12)
+        dot13 = Dot(ponto13)
+        dot14 = Dot(ponto14)
+
+        self.play(FadeIn(dot11), FadeIn(dot12), FadeIn(dot13), FadeIn(dot14))
+
+        linha04 = Line(ponto11)
+        linha05 = Line(ponto13)
+
+        self.play(Create(linha04), Create(linha05))
