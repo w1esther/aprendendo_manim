@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/2752311994_4253872260_223132457.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/2272357178_1831374817_1539538355.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/868651506_4238797637_3440014140.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/2061166530_1831374817_2077419993.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/2061166530_683687625_232509838.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/2061166530_1831374817_2792097431.mp4'
+file 'file:C:/Users/w1mar/OneDrive/Documentos/GitHub/aprendendo_manim/media/videos/xadrez/480p15/partial_movie_files/Xadrez/2061166530_1831374817_1881070240.mp4'
