@@ -21,6 +21,12 @@ class Xadrez(MovingCameraScene):
 
         self.wait(2)
 
+        texto1 = Text('Crescimento exponencial:')
+        ponto05 = np.array([0, 5, 0])
+        texto1.move_to(ponto05)
+
+        self.play(Create(texto1))
+
         # Cria os bloquinhos do tabuleiro
         bloquinhos = VGroup()
         side_length = 1  # cada quadradinho tem 1 unidade
@@ -48,3 +54,23 @@ class Xadrez(MovingCameraScene):
         self.wait(2)
 
         self.wait(2)
+
+        texto2 = Text('•', color=RED)
+        ponto06 = np.array([-3.5, -3.5, 0])
+        texto2.move_to(ponto06)
+
+        self.play(FadeIn(texto2))
+
+        self.wait(1)
+
+        texto3 = Text('•', color=RED)
+        ponto07 = np.array([-2.3, -3.5, 0])
+        texto3.move_to(ponto07)
+
+        texto4 = Text('•', color=RED)
+        ponto08 = np.array([-2.7, -3.5, 0])
+        texto4.move_to(ponto08)
+
+        self.play(FadeIn(texto3), FadeIn(texto4))
+
+        self.wait(1)
