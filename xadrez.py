@@ -226,3 +226,45 @@ class Xadrez(MovingCameraScene):
         self.play(self.camera.frame.animate.move_to(DOWN*3))
 
         self.wait(1)
+
+        texto33 = Text('2⁰')
+        ponto37 = np.array([-3.5, -4.5, 0])
+        texto33.move_to(ponto37)
+
+        texto34 = Text('2¹')
+        ponto38 = np.array([-2.5, -4.5, 0])
+        texto34.move_to(ponto38)
+
+        texto35 = Text('2²')
+        ponto39 = np.array([-1.5, -4.5, 0])
+        texto35.move_to(ponto39)
+
+        texto36 = Text('2³')
+        ponto40 = np.array([-0.5, -4.5, 0])
+        texto36.move_to(ponto40)
+
+        texto37 = Text('2⁴')
+        ponto41 = np.array([0.5, -4.5, 0])
+        texto37.move_to(ponto41)
+
+        self.play(FadeIn(texto33), FadeIn(texto34), FadeIn(texto35), FadeIn(texto36), FadeIn(texto37))
+
+        self.wait(2)
+
+        self.play(self.camera.frame.animate.scale(2).move_to(ORIGIN))
+
+        self.wait(1)
+
+        self.play(self.camera.frame.animate.scale(0.50).move_to(ORIGIN))
+
+        self.wait(0.5)
+
+        self.play(self.camera.frame.animate.move_to(UP*5))
+
+        texto38 = Text('Progressão geométrica é toda sequência numérica \n em que cada termo, a partir do segundo, é igual\n ao produto do termo anterior por uma constante q', font_size=20)
+        ponto42 = np.array([0, 8, 0])
+        texto38.move_to(ponto42)
+
+        self.play(Create(texto38))
+
+        self.wait(2)
