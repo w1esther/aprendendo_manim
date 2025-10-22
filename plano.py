@@ -113,6 +113,8 @@ class Plano(MovingCameraScene):
 
         self.play(Create(linha06))
 
+        self.play(linha06.animate.move_to(LEFT*4))
+
         self.wait(2)
 
         texto_ponto1 = Text('(-1; 4)', color=BLUE, font_size=20)
