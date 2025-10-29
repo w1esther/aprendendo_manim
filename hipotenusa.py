@@ -9,7 +9,7 @@ class Hipotenusa(Scene):
         a, b = 3, 4
         c = sqrt(a**2 + b**2)
 
-        fe = 0.5
+        fe = 1
 
         # tri cria o triângulo retângulo 
 
@@ -41,6 +41,9 @@ class Hipotenusa(Scene):
         # comprimento da hipotenusa, fazer sem o artifício
 
         length_v = np.linalg.norm(v[:2])
+
+        print("teste")
+        import pdb; pdb.set_trace()
 
         # vetor unitário na direção da hipotenusa
 
